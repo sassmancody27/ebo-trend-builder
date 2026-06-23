@@ -928,11 +928,10 @@ if tk is not None:
                 for pt in ctrl.points:
                     pt_var = tk.BooleanVar(value=True)
                     self.point_vars[(ctrl.name, pt.name)] = pt_var
-                    pt_item = self.tree.insert(item, "end", text=f"    {pt.name}",
+                    pt_item = self.tree.insert(item, "end", text=f"    [X] {pt.name}",
                                      values=(pt.type_name.split(".")[-1], ""),
                                      tags=("point",))
                     self.point_tree_refs[pt_item] = (ctrl.name, pt.name)
-                    self.tree.set(pt_item, "selected", "[X]")
                     pt_var.set(True)
 
         def _on_tree_click(self, event):
@@ -951,7 +950,9 @@ if tk is not None:
                         if child in self.point_tree_refs:
                             key = self.point_tree_refs[child]
                             self.point_vars[key].set(new_val)
-                            self.tree.set(child, "selected", "[X]" if new_val else "[ ]")
+                            pn = self.point_tree_refs[child][1]
+                            cmark = "[X]" if new_val else "[ ]"
+                            self.tree.item(child, text=f"    {cmark} {pn}")
                     return
             # Check if it is a point row
             if item in self.point_tree_refs:
@@ -959,7 +960,8 @@ if tk is not None:
                 key = (ctrl_name, pt_name)
                 var = self.point_vars[key]
                 var.set(not var.get())
-                self.tree.set(item, "selected", "[X]" if var.get() else "[ ]")
+                mark = "[X]" if var.get() else "[ ]"
+                self.tree.item(item, text=f"    {mark} {pt_name}")
 
         def _select_all(self):
             for ctrl_name, var in self.controller_vars.items():
@@ -971,7 +973,8 @@ if tk is not None:
                         if child in self.point_tree_refs:
                             key = self.point_tree_refs[child]
                             self.point_vars[key].set(True)
-                            self.tree.set(child, "selected", "[X]")
+                            pn = self.point_tree_refs[child][1]
+                            self.tree.item(child, text=f"    [X] {pn}")
 
         def _deselect_all(self):
             for ctrl_name, var in self.controller_vars.items():
@@ -983,7 +986,8 @@ if tk is not None:
                         if child in self.point_tree_refs:
                             key = self.point_tree_refs[child]
                             self.point_vars[key].set(False)
-                            self.tree.set(child, "selected", "[ ]")
+                            pn = self.point_tree_refs[child][1]
+                            self.tree.item(child, text=f"    [ ] {pn}")
 
         def _build_report(self, output_path, stats):
             report = []
