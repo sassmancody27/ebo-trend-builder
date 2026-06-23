@@ -329,12 +329,14 @@ class XmlGenerator:
     """Generates EBO import XML from parsed station data."""
 
     def __init__(self, db, include_trend_logs=True, include_ext_logs=True,
-                 include_trend_charts=True, selected_controllers=None):
+                 include_trend_charts=True, selected_controllers=None,
+                 selected_points=None):
         self.db = db
         self.include_trend_logs = include_trend_logs
         self.include_ext_logs = include_ext_logs
         self.include_trend_charts = include_trend_charts
         self.selected_controllers = selected_controllers  # set of names, or None for all
+        self.selected_points = selected_points  # set of (ctrl_name, point_name) tuples, or None
 
     def generate(self, output_path=None):
         """Generate XML and optionally write to file. Returns (xml_string, stats_dict)."""
@@ -414,7 +416,9 @@ class XmlGenerator:
 
     def _add_trend_logs(self, parent_oi, ctrl, addr_counter, stats):
         """Add BACnet Trend Log entries."""
-        for point in ctrl.points:
+        points = [p for p in ctrl.points
+                  if self.selected_points is None or (ctrl.name, p.name) in self.selected_points]
+        for point in points:
             addr = addr_counter[ctrl.name]
             trend_name = self._make_trend_name(point)
             bacnet_name = self._truncate_bacnet_name(trend_name)
@@ -481,7 +485,9 @@ class XmlGenerator:
         ext_folder.set("NAME", "Ext Logs")
         ext_folder.set("TYPE", "system.base.Folder")
 
-        for point in ctrl.points:
+        points = [p for p in ctrl.points
+                  if self.selected_points is None or (ctrl.name, p.name) in self.selected_points]
+        for point in points:
             trend_name = self._make_trend_name(point)
             ext_name = f"{trend_name} - Extended Trend Log"
             stats["ext_logs_created"] += 1
@@ -532,7 +538,9 @@ class XmlGenerator:
         charts_folder.set("NAME", "Trend Charts")
         charts_folder.set("TYPE", "system.base.Folder")
 
-        for point in ctrl.points:
+        points = [p for p in ctrl.points
+                  if self.selected_points is None or (ctrl.name, p.name) in self.selected_points]
+        for point in points:
             trend_name = self._make_trend_name(point)
             stats["trend_charts_created"] += 1
 
@@ -630,6 +638,8 @@ if tk is not None:
             self.xbk_path = None
             self.controller_vars = {}  # name -> tk.BooleanVar
             self.controller_tree_refs = {}  # name -> tree item ID
+            self.point_vars = {}  # (ctrl_name, point_name) -> tk.BooleanVar
+            self.point_tree_refs = {}  # tree item ID -> (ctrl_name, point_name)
 
             self._setup_styles()
             self._build_ui()
@@ -872,6 +882,8 @@ if tk is not None:
                 self.tree.delete(item)
             self.controller_vars.clear()
             self.controller_tree_refs.clear()
+            self.point_vars.clear()
+            self.point_tree_refs.clear()
             self.server_info_label.config(text="")
             self._set_status("Loading backup...", color="#FFA726")
 
@@ -914,22 +926,38 @@ if tk is not None:
 
                 # Add child points
                 for pt in ctrl.points:
-                    self.tree.insert(item, "end", text=f"    {pt.name}",
-                                     values=(pt.type_name.split(".")[-1], ""),
+                    pt_var = tk.BooleanVar(value=True)
+                    self.point_vars[(ctrl.name, pt.name)] = pt_var
+                    pt_item = self.tree.insert(item, "end", text=f"    {pt.name}",
+                                     values=(pt.type_name.split(".")[-1], "[X]"),
                                      tags=("point",))
+                    self.point_tree_refs[pt_item] = (ctrl.name, pt.name)
 
         def _on_tree_click(self, event):
-            """Toggle controller checkbox on click."""
+            """Toggle controller or point checkbox on click."""
             item = self.tree.identify_row(event.y)
             if not item:
                 return
-            # Get the controller name from the item
+            # Check if it is a controller row
             for ctrl_name, ref_id in self.controller_tree_refs.items():
                 if ref_id == item:
-                    var = self.controller_vars[ctrl_name]
-                    var.set(not var.get())
-                    self.tree.set(item, "selected", "[X]" if var.get() else "[ ]")
-                    break
+                    new_val = not self.controller_vars[ctrl_name].get()
+                    self.controller_vars[ctrl_name].set(new_val)
+                    self.tree.set(item, "selected", "[X]" if new_val else "[ ]")
+                    # Toggle all child points to match
+                    for child in self.tree.get_children(item):
+                        if child in self.point_tree_refs:
+                            key = self.point_tree_refs[child]
+                            self.point_vars[key].set(new_val)
+                            self.tree.set(child, "selected", "[X]" if new_val else "[ ]")
+                    return
+            # Check if it is a point row
+            if item in self.point_tree_refs:
+                ctrl_name, pt_name = self.point_tree_refs[item]
+                key = (ctrl_name, pt_name)
+                var = self.point_vars[key]
+                var.set(not var.get())
+                self.tree.set(item, "selected", "[X]" if var.get() else "[ ]")
 
         def _select_all(self):
             for ctrl_name, var in self.controller_vars.items():
@@ -937,6 +965,11 @@ if tk is not None:
                 ref = self.controller_tree_refs.get(ctrl_name)
                 if ref:
                     self.tree.set(ref, "selected", "[X]")
+                    for child in self.tree.get_children(ref):
+                        if child in self.point_tree_refs:
+                            key = self.point_tree_refs[child]
+                            self.point_vars[key].set(True)
+                            self.tree.set(child, "selected", "[X]")
 
         def _deselect_all(self):
             for ctrl_name, var in self.controller_vars.items():
@@ -944,6 +977,11 @@ if tk is not None:
                 ref = self.controller_tree_refs.get(ctrl_name)
                 if ref:
                     self.tree.set(ref, "selected", "[ ]")
+                    for child in self.tree.get_children(ref):
+                        if child in self.point_tree_refs:
+                            key = self.point_tree_refs[child]
+                            self.point_vars[key].set(False)
+                            self.tree.set(child, "selected", "[ ]")
 
         def _build_report(self, output_path, stats):
             report = []
@@ -973,6 +1011,10 @@ if tk is not None:
                 return
 
             selected = set(name for name, var in self.controller_vars.items() if var.get())
+            selected_points = set()
+            for (cname, pname), var in self.point_vars.items():
+                if var.get() and cname in selected:
+                    selected_points.add((cname, pname))
             if not selected:
                 messagebox.showwarning("No Selection", "Select at least one controller.")
                 return
@@ -997,6 +1039,7 @@ if tk is not None:
                     include_ext_logs=self.ext_log_var.get(),
                     include_trend_charts=self.chart_var.get(),
                     selected_controllers=selected,
+                    selected_points=selected_points,
                 )
                 xml_str, stats = gen.generate(output_path)
                 report_text = self._build_report(output_path, stats)
@@ -1038,12 +1081,18 @@ if tk is not None:
                     filename = f"trends_{self.db.server_name}_{safe_name}.xml"
                     filepath = os.path.join(output_dir, filename)
 
+                    pts_for_ctrl = set()
+                    for (cname, pname), var in self.point_vars.items():
+                        if var.get() and cname == ctrl_name:
+                            pts_for_ctrl.add((cname, pname))
+
                     gen = XmlGenerator(
                         db=self.db,
                         include_trend_logs=self.trend_log_var.get(),
                         include_ext_logs=self.ext_log_var.get(),
                         include_trend_charts=self.chart_var.get(),
                         selected_controllers={ctrl_name},
+                        selected_points=pts_for_ctrl,
                     )
                     xml_str, stats = gen.generate(filepath)
                     total_tl += stats["trend_logs_created"]
