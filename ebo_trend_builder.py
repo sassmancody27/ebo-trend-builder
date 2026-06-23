@@ -785,7 +785,7 @@ if tk is not None:
 
             tk.Label(options_frame, text="Generate:",
                      font=("Segoe UI", 10),
-                     fg=self.FG_WHITE, bg=self.BG_MED).pack(**pad_opts, pady=(12, 5))
+                     fg=self.FG_WHITE, bg=self.BG_MED).pack(**pad_opts)
 
             self.trend_log_var = tk.BooleanVar(value=True)
             tk.Checkbutton(options_frame, text="BACnet Trend Logs",
