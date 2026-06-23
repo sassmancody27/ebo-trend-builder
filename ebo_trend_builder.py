@@ -939,6 +939,12 @@ if tk is not None:
             item = self.tree.identify_row(event.y)
             if not item:
                 return
+            # Skip clicks on the expand/collapse indicator arrow
+            region = self.tree.identify_region(event.x, event.y)
+            if region == "tree":
+                elem = self.tree.identify_element(event.x, event.y)
+                if elem and "indicator" in elem:
+                    return
             # Check if it is a controller row
             for ctrl_name, ref_id in self.controller_tree_refs.items():
                 if ref_id == item:
