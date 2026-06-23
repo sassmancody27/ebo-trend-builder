@@ -929,9 +929,11 @@ if tk is not None:
                     pt_var = tk.BooleanVar(value=True)
                     self.point_vars[(ctrl.name, pt.name)] = pt_var
                     pt_item = self.tree.insert(item, "end", text=f"    {pt.name}",
-                                     values=(pt.type_name.split(".")[-1], "[X]"),
+                                     values=(pt.type_name.split(".")[-1], ""),
                                      tags=("point",))
                     self.point_tree_refs[pt_item] = (ctrl.name, pt.name)
+                    self.tree.set(pt_item, "selected", "[X]")
+                    pt_var.set(True)
 
         def _on_tree_click(self, event):
             """Toggle controller or point checkbox on click."""
