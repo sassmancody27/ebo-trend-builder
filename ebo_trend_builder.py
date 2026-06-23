@@ -818,16 +818,26 @@ if tk is not None:
             sep2 = tk.Frame(options_frame, height=1, bg=self.SELECT_BG)
             sep2.pack(fill="x", padx=12, pady=10)
 
-            # Export button
-            self.export_btn = tk.Button(options_frame, text="Export XML",
-                                        font=("Segoe UI", 11, "bold"),
+            # Export buttons
+            self.export_group_btn = tk.Button(options_frame, text="Export XML - Group",
+                                        font=("Segoe UI", 10, "bold"),
                                         bg="#009624", fg=self.FG_WHITE,
-                                        relief="flat", padx=20, pady=8,
+                                        relief="flat", padx=20, pady=6,
                                         activebackground=self.HIGHLIGHT,
                                         cursor="hand2",
                                         state="disabled",
-                                        command=self._export)
-            self.export_btn.pack(padx=12, pady=(0, 10), fill="x")
+                                        command=self._export_group)
+            self.export_group_btn.pack(padx=12, pady=(0, 5), fill="x")
+
+            self.export_single_btn = tk.Button(options_frame, text="Export XML - Single",
+                                         font=("Segoe UI", 10, "bold"),
+                                         bg=self.SELECT_BG, fg=self.FG_WHITE,
+                                         relief="flat", padx=20, pady=6,
+                                         activebackground=self.HIGHLIGHT,
+                                         cursor="hand2",
+                                         state="disabled",
+                                         command=self._export_single)
+            self.export_single_btn.pack(padx=12, pady=(0, 10), fill="x")
 
             # Status
             status_frame = tk.Frame(self.root, bg=self.BG_DARK)
@@ -877,7 +887,8 @@ if tk is not None:
                 self.db.open()
                 self.xbk_path = path
                 self._populate_tree()
-                self.export_btn.config(state="normal")
+                self.export_group_btn.config(state="normal")
+                self.export_single_btn.config(state="normal")
 
                 info = f"Server: {self.db.server_name}  |  Version: {self.db.server_version}  |  " \
                        f"Controllers: {len(self.db.controllers)}  |  Total Points: {sum(len(c.points) for c in self.db.controllers)}"
@@ -934,25 +945,46 @@ if tk is not None:
                 if ref:
                     self.tree.set(ref, "selected", "[ ]")
 
-        def _export(self):
+        def _build_report(self, output_path, stats):
+            report = []
+            report.append(f"──────────────────────────────────────────────────")
+            report.append("  EBO TREND BUILDER - EXPORT COMPLETE")
+            report.append(f"──────────────────────────────────────────────────")
+            report.append(f"  Output File:  {output_path}")
+            report.append(f"  Server:       {self.db.server_name}  v{self.db.server_version}")
+            report.append(f"  Controllers:  {len(stats['controllers_found'])} / {stats['total_controllers']}")
+            report.append(f"  Total Points: {stats['total_points']}")
+            report.append(f"──────────────────────────────────────────────────")
+            report.append(f"  Trends Created:")
+            report.append(f"    BACnet Trend Logs:     {stats['trend_logs_created']}")
+            report.append(f"    Extended Trend Logs:   {stats['ext_logs_created']}")
+            report.append(f"    Trend Charts:          {stats['trend_charts_created']}")
+            report.append(f"─────────────────────────────")
+            report.append(f"    TOTAL Objects:         {stats['trend_logs_created'] + stats['ext_logs_created'] + stats['trend_charts_created']}")
+            report.append(f"──────────────────────────────────────────────────")
+            report.append(f"  File size: {os.path.getsize(output_path):,} bytes")
+            report.append(f"──────────────────────────────────────────────────")
+            return "\n".join(report)
+
+        def _export_group(self):
+            """Export all selected controllers into a single XML file."""
             if not self.db:
                 messagebox.showwarning("No Data", "Load a backup file first.")
-                return
-
-            # Ask for output file
-            default_name = f"trends_{self.db.server_name}.xml"
-            output_path = filedialog.asksaveasfilename(
-                title="Save XML Export",
-                defaultextension=".xml",
-                initialfile=default_name,
-                filetypes=[("XML Files", "*.xml"), ("All Files", "*.*")]
-            )
-            if not output_path:
                 return
 
             selected = set(name for name, var in self.controller_vars.items() if var.get())
             if not selected:
                 messagebox.showwarning("No Selection", "Select at least one controller.")
+                return
+
+            default_name = f"trends_{self.db.server_name}.xml"
+            output_path = filedialog.asksaveasfilename(
+                title="Save Group XML Export",
+                defaultextension=".xml",
+                initialfile=default_name,
+                filetypes=[("XML Files", "*.xml"), ("All Files", "*.*")]
+            )
+            if not output_path:
                 return
 
             self.root.config(cursor="watch")
@@ -967,36 +999,85 @@ if tk is not None:
                     selected_controllers=selected,
                 )
                 xml_str, stats = gen.generate(output_path)
-
-                # Build status report
-                report = []
-                report.append(f"{'─'*50}")
-                report.append("  EBO TREND BUILDER - EXPORT COMPLETE")
-                report.append(f"{'─'*50}")
-                report.append(f"  Output File:  {output_path}")
-                report.append(f"  Server:       {self.db.server_name}  v{self.db.server_version}")
-                report.append(f"  Controllers:  {len(stats['controllers_found'])} / {stats['total_controllers']}")
-                report.append(f"  Total Points: {stats['total_points']}")
-                report.append(f"{'─'*50}")
-                report.append(f"  Trends Created:")
-                report.append(f"    BACnet Trend Logs:     {stats['trend_logs_created']}")
-                report.append(f"    Extended Trend Logs:   {stats['ext_logs_created']}")
-                report.append(f"    Trend Charts:          {stats['trend_charts_created']}")
-                report.append(f"    ─────────────────────────────")
-                report.append(f"    TOTAL Objects:         {stats['trend_logs_created'] + stats['ext_logs_created'] + stats['trend_charts_created']}")
-                report.append(f"{'─'*50}")
-                report.append(f"  File size: {os.path.getsize(output_path):,} bytes")
-                report.append(f"{'─'*50}")
-                report_text = "\n".join(report)
-
+                report_text = self._build_report(output_path, stats)
                 self._set_status(report_text, color=self.FG_GREEN)
-
             except Exception as e:
                 self._set_status(f"Export error: {e}", color=self.FG_RED)
                 messagebox.showerror("Export Error", str(e))
             finally:
                 self.root.config(cursor="")
 
+        def _export_single(self):
+            """Export one XML file per selected controller into a chosen directory."""
+            if not self.db:
+                messagebox.showwarning("No Data", "Load a backup file first.")
+                return
+
+            selected = set(name for name, var in self.controller_vars.items() if var.get())
+            if not selected:
+                messagebox.showwarning("No Selection", "Select at least one controller.")
+                return
+
+            output_dir = filedialog.askdirectory(
+                title="Select Export Directory for Individual Files"
+            )
+            if not output_dir:
+                return
+
+            self.root.config(cursor="watch")
+            self.root.update()
+
+            total_tl = 0
+            total_el = 0
+            total_tc = 0
+            created_files = []
+
+            try:
+                for ctrl_name in sorted(selected):
+                    safe_name = ctrl_name.replace("(", "").replace(")", "").replace(" ", "_")
+                    filename = f"trends_{self.db.server_name}_{safe_name}.xml"
+                    filepath = os.path.join(output_dir, filename)
+
+                    gen = XmlGenerator(
+                        db=self.db,
+                        include_trend_logs=self.trend_log_var.get(),
+                        include_ext_logs=self.ext_log_var.get(),
+                        include_trend_charts=self.chart_var.get(),
+                        selected_controllers={ctrl_name},
+                    )
+                    xml_str, stats = gen.generate(filepath)
+                    total_tl += stats["trend_logs_created"]
+                    total_el += stats["ext_logs_created"]
+                    total_tc += stats["trend_charts_created"]
+                    created_files.append(filepath)
+
+                report = []
+                report.append(f"──────────────────────────────────────────────────")
+                report.append("  EBO TREND BUILDER - SINGLE EXPORT COMPLETE")
+                report.append(f"──────────────────────────────────────────────────")
+                report.append(f"  Export Directory:  {output_dir}")
+                report.append(f"  Server:            {self.db.server_name}  v{self.db.server_version}")
+                report.append(f"  Files Created:     {len(created_files)} / {len(selected)} selected")
+                report.append(f"──────────────────────────────────────────────────")
+                report.append(f"  Trends Created:")
+                report.append(f"    BACnet Trend Logs:     {total_tl}")
+                report.append(f"    Extended Trend Logs:   {total_el}")
+                report.append(f"    Trend Charts:          {total_tc}")
+                report.append(f"─────────────────────────────")
+                report.append(f"    TOTAL Objects:         {total_tl + total_el + total_tc}")
+                report.append(f"──────────────────────────────────────────────────")
+                report.append("  Files:")
+                for f in created_files:
+                    size = os.path.getsize(f)
+                    report.append(f"    {os.path.basename(f)}  ({size:,} bytes)")
+                report.append(f"──────────────────────────────────────────────────")
+                self._set_status("\n".join(report), color=self.FG_GREEN)
+
+            except Exception as e:
+                self._set_status(f"Export error: {e}", color=self.FG_RED)
+                messagebox.showerror("Export Error", str(e))
+            finally:
+                self.root.config(cursor="")
         def _set_status(self, text, color=None):
             self.status_text.config(state="normal")
             self.status_text.delete("1.0", tk.END)
