@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectSet ExportMode="Special" Note="TypesFirst" SemanticsFilter="Special" Version="5.0.3.117">
+  <MetaInformation>
+    <ExportMode Value="Special"/>
+    <SemanticsFilter Value="None"/>
+    <RuntimeVersion Value="5.0.3.117"/>
+    <SourceVersion Value="5.0.3.117"/>
+    <ServerFullPath Value="/B170-CUP"/>
+  </MetaInformation>
+  <Types>
+      <PropertyType Name        = "udt.enum.aaamghme44ibd6chcuwad3sqor.aaamghme44ibd6chcuwaaq57xp"
+                    DisplayName = "Custom enumeration"
+                    Description = "Custom enumeration"
+                    Base        = "system.pt.PositiveInt32"
+                    RegExp      = ".*"
+                    Translate   = "1"
+                    EnumType    = "Strict"
+                    Icon        = ""
+                    Abstract    = "0"
+                    >
+                 <Enum Name="Off" Value="1"/>
+                 <Enum Name="On" Value="2"/>
+                 <Enum Name="Trouble" Value="3"/>
+      </PropertyType>
+      <PropertyType Name        = "udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"
+                    DisplayName = "Custom enumeration"
+                    Description = "Custom enumeration"
+                    Base        = "system.pt.PositiveInt32"
+                    RegExp      = ".*"
+                    Translate   = "1"
+                    EnumType    = "Strict"
+                    Icon        = ""
+                    Abstract    = "0"
+                    >
+                 <Enum Name="Off" Value="1"/>
+                 <Enum Name="On" Value="2"/>
+                 <Enum Name="-On" Value="3"/>
+      </PropertyType>
+      <PropertyType Name        = "udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"
+                    DisplayName = "Custom enumeration"
+                    Description = "Custom enumeration"
+                    Base        = "system.pt.PositiveInt32"
+                    RegExp      = ".*"
+                    Translate   = "1"
+                    EnumType    = "Strict"
+                    Icon        = ""
+                    Abstract    = "0"
+                    >
+                 <Enum Name="State 1" Value="1"/>
+                 <Enum Name="State 2" Value="2"/>
+                 <Enum Name="State 3" Value="3"/>
+                 <Enum Name="State 4" Value="4"/>
+                 <Enum Name="State 5" Value="5"/>
+                 <Enum Name="State 6" Value="6"/>
+                 <Enum Name="State 7" Value="7"/>
+                 <Enum Name="State 8" Value="8"/>
+                 <Enum Name="State 9" Value="9"/>
+                 <Enum Name="State 10" Value="10"/>
+                 <Enum Name="State 11" Value="11"/>
+                 <Enum Name="State 12" Value="12"/>
+                 <Enum Name="State 13" Value="13"/>
+                 <Enum Name="State 14" Value="14"/>
+                 <Enum Name="State 15" Value="15"/>
+                 <Enum Name="State 16" Value="16"/>
+                 <Enum Name="State 17" Value="17"/>
+                 <Enum Name="State 18" Value="18"/>
+                 <Enum Name="State 19" Value="19"/>
+                 <Enum Name="State 20" Value="20"/>
+                 <Enum Name="State 21" Value="21"/>
+                 <Enum Name="State 22" Value="22"/>
+                 <Enum Name="State 23" Value="23"/>
+                 <Enum Name="State 24" Value="24"/>
+                 <Enum Name="State 25" Value="25"/>
+                 <Enum Name="State 26" Value="26"/>
+                 <Enum Name="State 27" Value="27"/>
+                 <Enum Name="State 28" Value="28"/>
+                 <Enum Name="State 29" Value="29"/>
+                 <Enum Name="State 30" Value="30"/>
+                 <Enum Name="State 31" Value="31"/>
+                 <Enum Name="State 32" Value="32"/>
+      </PropertyType>
+
+  </Types>
+<ExportedObjects>
+  <OI NAME="TrendAutoBuild_Test" TYPE="system.base.Folder">
+    <OI NAME="Counter Input" TYPE="bacnet.mpx.point.CounterInput">
+      <PI Name="BACnetName" Value="Counter Input"/>
+      <PI Name="COVIncrement" Unit="0x10001" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     224&gt;"/>
+    </OI>
+    <OI NAME="Current Input" TYPE="bacnet.mpx.point.CurrentInput">
+      <PI Name="BACnetName" Value="Current Input"/>
+      <PI Name="COVIncrement" Unit="0xFD060001" Value="0.100000001"/>
+      <PI Name="EngBottomOfScale" Unit="0xFD060001" Value="0"/>
+      <PI Name="EngTopOfScale" Unit="0xFD060001" Value="0"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     225&gt;"/>
+      <PI Name="MaxPresValue" Unit="0xFD060001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0xFD060001" Value="-3.40282002e+38"/>
+      <PI Name="Offset" Unit="0xFD060001" Value="0"/>
+    </OI>
+    <OI NAME="Digital Input" TYPE="bacnet.mpx.point.DigitalInput">
+      <PI Name="BACnetName" Value="Digital Input"/>
+      <PI Name="ForeignAddress" Value="&lt;binary-input,     226&gt;"/>
+      <PI Name="Value" Type="bacnet.pt.BACnetBinaryPV"/>
+    </OI>
+    <OI NAME="Resistive Input" TYPE="bacnet.mpx.point.ResistiveInput">
+      <PI Name="BACnetName" Value="Resistive Input"/>
+      <PI Name="COVIncrement" Unit="0x250001" Value="0.100000001"/>
+      <PI Name="EngBottomOfScale" Unit="0x250001" Value="0"/>
+      <PI Name="EngTopOfScale" Unit="0x250001" Value="0"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     227&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x250001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x250001" Value="-3.40282002e+38"/>
+      <PI Name="Offset" Unit="0x250001" Value="0"/>
+    </OI>
+    <OI NAME="RTD Temperature Input" TYPE="bacnet.mpx.point.RTD2WireInput">
+      <PI Name="BACnetName" Value="RTD Temperature Input"/>
+      <PI Name="COVIncrement" Unit="0x290001" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     228&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x280001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x280001" Value="-3.40282002e+38"/>
+      <PI Name="Offset" Unit="0x290001" Value="0"/>
+    </OI>
+    <OI NAME="Supervised Input" TYPE="bacnet.mpx.point.SupervisedInput">
+      <PI Name="BACnetName" Value="Supervised Input"/>
+      <PI Name="ForeignAddress" Value="&lt;multi-state-input,     229&gt;"/>
+      <PI Name="Value" Type="udt.enum.aaamghme44ibd6chcuwad3sqor.aaamghme44ibd6chcuwaaq57xp"/>
+    </OI>
+    <OI NAME="Temperature Input" TYPE="bacnet.mpx.point.TemperatureInput">
+      <PI Name="BACnetName" Value="Temperature Input"/>
+      <PI Name="COVIncrement" Unit="0x290001" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     230&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x280001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x280001" Value="-3.40282002e+38"/>
+      <PI Name="Offset" Unit="0x290001" Value="0"/>
+    </OI>
+    <OI NAME="Voltage Input" TYPE="bacnet.mpx.point.VoltageInput">
+      <PI Name="BACnetName" Value="Voltage Input"/>
+      <PI Name="COVIncrement" Unit="0x320001" Value="0.100000001"/>
+      <PI Name="EngBottomOfScale" Unit="0x320001" Value="0"/>
+      <PI Name="EngTopOfScale" Unit="0x320001" Value="0"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-input,     231&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x320001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x320001" Value="-3.40282002e+38"/>
+      <PI Name="Offset" Unit="0x320001" Value="0"/>
+    </OI>
+    <OI NAME="Current Output" TYPE="bacnet.mpx.point.CurrentOutput">
+      <PI Name="BACnetName" Value="Current Output"/>
+      <PI Name="COVIncrement" Unit="0xFD060001" Value="0.100000001"/>
+      <PI Name="EngBottomOfScale" Unit="0xFD060001" Value="0"/>
+      <PI Name="EngTopOfScale" Unit="0xFD060001" Value="0"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-output,     232&gt;"/>
+      <PI Name="MaxPresValue" Unit="0xFD060001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0xFD060001" Value="-3.40282002e+38"/>
+    </OI>
+    <OI NAME="Digital Output" TYPE="bacnet.mpx.point.DigitalOutput">
+      <PI Name="BACnetName" Value="Digital Output"/>
+      <PI Name="ForeignAddress" Value="&lt;binary-output,     234&gt;"/>
+      <PI Name="Priority1" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority10" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority11" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority12" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority13" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority14" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority15" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority16" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority2" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority3" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority4" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority5" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority6" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority7" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority8" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority9" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="RelinquishDefault" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Value" Type="bacnet.pt.BACnetBinaryPV"/>
+    </OI>
+    <OI NAME="Digital Pulsed Output" TYPE="bacnet.mpx.point.DigitalPulsedOutput">
+      <PI Name="BACnetName" Value="Digital Pulsed Output"/>
+      <PI Name="COVIncrement" Unit="0x2E0007" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-output,     235&gt;"/>
+    </OI>
+    <OI NAME="Pulse Width Modulated Output" TYPE="bacnet.mpx.point.PulseWidthOutput">
+      <PI Name="BACnetName" Value="Pulse Width Modulated Output"/>
+      <PI Name="COVIncrement" Unit="0x2E0007" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-output,     236&gt;"/>
+      <PI Name="Value" Unit="0x2E0007"/>
+    </OI>
+    <OI NAME="Tristate Output" TYPE="bacnet.mpx.point.TristateOutput">
+      <PI Name="BACnetName" Value="Tristate Output"/>
+      <PI Name="ElectricalValue" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="ForeignAddress" Value="&lt;multi-state-output,     237&gt;"/>
+      <PI Name="Priority1" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority10" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority11" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority12" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority13" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority14" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority15" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority16" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority2" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority3" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority4" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority5" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority6" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority7" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority8" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Priority9" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="RelinquishDefault" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+      <PI Name="Value" Type="udt.enum.aaameln6lthq46cylojzbuzmwn.aaameln6lthq46cylojyaqvfkq"/>
+    </OI>
+    <OI NAME="Tristate Pulsed Output" TYPE="bacnet.mpx.point.TristatePulsedOutput">
+      <PI Name="BACnetName" Value="Tristate Pulsed Output"/>
+      <PI Name="COVIncrement" Unit="0x2E0007" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-output,     238&gt;"/>
+    </OI>
+    <OI NAME="Voltage Output" TYPE="bacnet.mpx.point.VoltageOutput">
+      <PI Name="BACnetName" Value="Voltage Output"/>
+      <PI Name="COVIncrement" Unit="0x320001" Value="0.100000001"/>
+      <PI Name="EngBottomOfScale" Unit="0x320001" Value="0"/>
+      <PI Name="EngTopOfScale" Unit="0x320001" Value="0"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-output,     239&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x320001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x320001" Value="-3.40282002e+38"/>
+    </OI>
+    <OI NAME="Analog Value" TYPE="bacnet.mpx.value.AnalogValue">
+      <PI Name="BACnetName" Value="Analog Value"/>
+      <PI Name="COVIncrement" Unit="0x10001" Value="0.100000001"/>
+      <PI Name="ForeignAddress" Value="&lt;analog-value,     240&gt;"/>
+      <PI Name="MaxPresValue" Unit="0x10001" Value="3.40282002e+38"/>
+      <PI Name="MinPresValue" Unit="0x10001" Value="-3.40282002e+38"/>
+      <PI Name="Priority1" Unit="0x10001"/>
+      <PI Name="Priority10" Unit="0x10001"/>
+      <PI Name="Priority11" Unit="0x10001"/>
+      <PI Name="Priority12" Unit="0x10001"/>
+      <PI Name="Priority13" Unit="0x10001"/>
+      <PI Name="Priority14" Unit="0x10001"/>
+      <PI Name="Priority15" Unit="0x10001"/>
+      <PI Name="Priority16" Unit="0x10001"/>
+      <PI Name="Priority2" Unit="0x10001"/>
+      <PI Name="Priority3" Unit="0x10001"/>
+      <PI Name="Priority4" Unit="0x10001"/>
+      <PI Name="Priority5" Unit="0x10001"/>
+      <PI Name="Priority6" Unit="0x10001"/>
+      <PI Name="Priority7" Unit="0x10001"/>
+      <PI Name="Priority8" Unit="0x10001"/>
+      <PI Name="Priority9" Unit="0x10001"/>
+      <PI Name="RelinquishDefault" Unit="0x10001"/>
+    </OI>
+    <OI NAME="Digital Value" TYPE="bacnet.mpx.value.DigitalValue">
+      <PI Name="ActiveText" Value=""/>
+      <PI Name="BACnetName" Value="Digital Value"/>
+      <PI Name="ForeignAddress" Value="&lt;binary-value,     241&gt;"/>
+      <PI Name="InactiveText" Value=""/>
+      <PI Name="Priority1" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority10" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority11" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority12" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority13" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority14" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority15" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority16" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority2" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority3" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority4" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority5" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority6" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority7" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority8" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Priority9" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="RelinquishDefault" Type="bacnet.pt.BACnetBinaryPV"/>
+      <PI Name="Value" Type="bacnet.pt.BACnetBinaryPV"/>
+    </OI>
+    <OI NAME="Multistate Value" TYPE="bacnet.mpx.value.MultistateValue">
+      <PI Name="BACnetName" Value="Multistate Value"/>
+      <PI Name="ForeignAddress" Value="&lt;multi-state-value,     242&gt;"/>
+      <PI Name="Priority1" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority10" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority11" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority12" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority13" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority14" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority15" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority16" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority2" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority3" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority4" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority5" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority6" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority7" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority8" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Priority9" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="RelinquishDefault" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+      <PI Name="Value" Type="udt.enum.aaed3x3nyuehkodnc7ivtrfhmk.aaed3x3nyuehkodnc7iucoldo6"/>
+    </OI>
+    <OI NAME="String Value" TYPE="bacnet.mpx.value.CharacterString">
+      <PI Name="BACnetName" Value="String Value"/>
+      <PI Name="ForeignAddress" Value="&lt;characterstring_value,     243&gt;"/>
+    </OI>
+  </OI>
+  <OI NAME="Trends" TYPE="system.base.Folder">
+    <OI NAME="Counter Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Counter Input - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     245&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Counter Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Current Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Current Input - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     246&gt;"/>
+      <PI Name="LogArray" Unit="0xFD060001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0xFD060001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Current Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Resistive Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Resistive Input~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     248&gt;"/>
+      <PI Name="LogArray" Unit="0x250001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x250001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Resistive Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="RTD Temperature Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="RTD Temperature~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     249&gt;"/>
+      <PI Name="LogArray" Unit="0x280001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x280001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/RTD Temperature Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Temperature Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Temperature Inp~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     250&gt;"/>
+      <PI Name="LogArray" Unit="0x280001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x280001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Temperature Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Voltage Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Voltage Input - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     251&gt;"/>
+      <PI Name="LogArray" Unit="0x320001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x320001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Voltage Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Current Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Current Output ~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     252&gt;"/>
+      <PI Name="LogArray" Unit="0xFD060001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0xFD060001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Current Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Digital Pulsed Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Digital Pulsed ~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     253&gt;"/>
+      <PI Name="LogArray" Unit="0x2E0007"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x2E0007">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Digital Pulsed Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Pulse Width Modulated Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Pulse Width Mod~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     254&gt;"/>
+      <PI Name="LogArray" Unit="0x2E0007"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x2E0007">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Pulse Width Modulated Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Tristate Pulsed Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Tristate Pulsed~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     255&gt;"/>
+      <PI Name="LogArray" Unit="0x2E0007"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x2E0007">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Tristate Pulsed Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Voltage Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Voltage Output ~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     244&gt;"/>
+      <PI Name="LogArray" Unit="0x320001"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x320001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Voltage Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Analog Value - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Analog Value - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     247&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Analog Value" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="30000"/>
+      <PI Name="LoggingType" Value="0"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Digital Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Digital Input - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     258&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Digital Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Digital Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Digital Output ~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     261&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Digital Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Digital Value - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Digital Value - BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     260&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Digital Value" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Supervised Input - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Supervised Inpu~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     259&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Supervised Input" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Tristate Output - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Tristate Output~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     257&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Tristate Output" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Multistate Value - BACnet Trend Log" TYPE="bacnet.mpx.TrendLog">
+      <PI Name="BACnetName" Value="Multistate Valu~BACnet Trend Log"/>
+      <PI Name="ForeignAddress" Value="&lt;trend-log,     256&gt;"/>
+      <PI Name="LogDeviceObjectProperty" Unit="0x10001">
+        <Reference DeltaFilter="0" Locked="1" Object="~/BACnet Interface/RSTP Network/Towers_C1_Pumps/Application/TrendAutoBuild_Test/Multistate Value" Property="Value" Retransmit="0" TransferRate="10"/>
+      </PI>
+      <PI Name="LogInterval" Value="0"/>
+      <PI Name="LoggingType" Value="1"/>
+      <PI Name="Start_Time" Null="1"/>
+      <PI Name="StopTime" Null="1"/>
+    </OI>
+    <OI NAME="Ext Logs" TYPE="system.base.Folder">
+      <OI NAME="Analog Value - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Analog Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Counter Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Counter Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Current Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0xFD060001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Current Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Current Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0xFD060001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Current Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Digital Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Digital Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Digital Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Digital Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Digital Pulsed Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x2E0007"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Digital Pulsed Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Digital Value - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Digital Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Multistate Value - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Multistate Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Pulse Width Modulated Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x2E0007"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Pulse Width Modulated Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Resistive Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x250001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Resistive Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="RTD Temperature Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x280001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../RTD Temperature Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Supervised Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Supervised Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Temperature Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x280001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Temperature Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Tristate Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x10001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Tristate Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Tristate Pulsed Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x2E0007"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Tristate Pulsed Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Voltage Input - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x320001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Voltage Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+      <OI NAME="Voltage Output - BACnet Trend Log - Extended Trend Log" TYPE="trend.ETLog">
+        <PI Name="ForceReadTimeout" Value="900000"/>
+        <PI Name="LogArray" Unit="0x320001"/>
+        <PI Name="MeterEndTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterStartTime" Value="Tx0654e1d6c8b58e29"/>
+        <PI Name="MeterTime" Value="Tx0654e1d6c8b97629"/>
+        <PI Name="MonitoredLog">
+          <Reference DeltaFilter="0" Object="../../Voltage Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+        </PI>
+        <PI Name="SmartLogEnabled" Value="0"/>
+        <PI Name="LastTransferredTimestamp" Value="Tx0000000000000000"/>
+      </OI>
+    </OI>
+    <OI NAME="Trend Charts" TYPE="system.base.Folder">
+      <OI NAME="Analog Value" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e11117902c29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Analog Value - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Analog Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Counter Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e120db927929"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Counter Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Counter Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Current Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e122b5cfb829"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Current Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Current Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Current Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e123252a4429"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Current Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Current Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Digital Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e12409e9ec29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Digital Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Digital Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Digital Pulsed Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1249bb22d29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Digital Pulsed Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Digital Pulsed Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Digital Value" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1254f8ee929"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Digital Value - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Digital Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Multistate Value" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1261eb0d229"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Multistate Value - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Multistate Value - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Pulse Width Modulated Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1269609aa29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Pulse Width Modulated Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Pulse Width Modulated Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Resistive Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1274a87cd29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Resistive Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Resistive Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="RTD Temperature Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e127e0245d29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="RTD Temperature Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../RTD Temperature Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Supervised Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1285731a929"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Supervised Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Supervised Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Temperature Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e1292efdb029"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Temperature Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Temperature Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Tristate Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e129df159729"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Tristate Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Tristate Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Tristate Pulsed Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e12a40b70629"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Tristate Pulsed Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Tristate Pulsed Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Voltage Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e12b06963729"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Voltage Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Voltage Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Voltage Output" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e12bb18a5f29"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Voltage Output - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Voltage Output - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+      <OI NAME="Digital Input" TYPE="trend.view.GraphicalTrendView">
+        <PI Name="DisplayStartTime" Value="Tx0654e123a6cf5929"/>
+        <PI Name="YAxisMaximum1" Value="0.10000000000000001"/>
+        <PI Name="YAxisMaximum2" Value="0.10000000000000001"/>
+        <OI NAME="Digital Input - BACnet Trend Log" TYPE="trend.view.TrendLogSeriesProperties" hidden="1">
+          <PI Name="Color" Value="-11179217"/>
+          <PI Name="CustomCalculationPeriodStart" Value="Tx0654d083b6f40029"/>
+          <PI Name="DisplayLog">
+            <Reference DeltaFilter="0" Object="../../../Digital Input - BACnet Trend Log" Retransmit="0" TransferRate="10"/>
+          </PI>
+        </OI>
+      </OI>
+    </OI>
+  </OI>
+</ExportedObjects>
+
+</ObjectSet>
